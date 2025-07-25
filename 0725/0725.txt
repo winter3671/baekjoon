@@ -1,0 +1,45 @@
+## 관통 프로젝트
+
+### 정보 요청
+- 먼저 pip install requests로 requests를 설치
+- 이후 import requests로 api를 요청
+
+import requests
+
+url = "https://fakestoreapi.com/carts"
+data = requests.get(url)  - 조회 요청
+print(data)  -> <Resopnse [200]> : 정상, 404 : 그런 데이터는 우리 서버에 없다
+
+data = requests.get(url).json()
+print(data)  -> 리스트 안에 딕셔너리가 들어간 형태로 api값 출력
+
+from pprint import pprint
+pprint(data) -> api data가 정렬된 형태로 출력
+
+### API
+- 클라이언트가 데이터 저장, 조회, 수정, 삭제 등 기능을 수행하기 위해 서버측에 만들어 놓은 프로그램
+- 서버 측에 특정 주소로 요청이 오면 정해진 기능을 수행하는 API를 미리 만들어 둠
+- 유료 API와 무료 API(오픈 API)가 둘 다 존재
+
+### 오픈 API
+- 외부에서 사용할 수 있도록 무료로 개방된 API
+- 너무 많은 요청이 들어오면 서버가 과부하되기 때문에 API KEY를 활용하여 사용자를 확인함
+  - 사용자 인증 혹은 회원가입 시 서버에서 API KEY 발급
+  - 서버에 요청할 때 마다 해당 API KEY를 함께 보내 정상적인 사용자인 것을 확인받음
+- 일부 오픈 API는 사용량이 제한되어 있음
+  - 공식 문서의 일일 및 월간 사용량 제한을 반드시 확인해야 함
+  - 사용량이 초과될 경우 요금이 청구될 수 있음
+
+### JSON
+- JavaScript Object Notation(자바스크립트 객체 표기법)
+- 데이터를 저장하거나 전송할 때 많이 사용되는 경량의 텍스트 기반의 데이터 형식
+- 특징
+  - 데이터는 중괄호{}로 둘러싸인 키-값 쌍의 집합으로 표현됨
+  - 키 = 문자열 / 값 = 다양한 데이터 유형
+  - 값은 쉼표(,)로 구분됨
+  - 딕셔너리와 같은 형식임
+- 데이터 형식과 패키지 이름 모두 JSON임
+- json_data는 딕셔너리 형식의 문자열이지만, 딕셔너리는 아님
+  - json.loads(json_data)를 거치면 딕셔너리로 바뀜
+  
+
