@@ -75,6 +75,7 @@ print(new_text) -> llo, world!
 - .split(sep=None, maxsplit=-1)
   - sep를 구분자 문자열로 사용하여 문자열에 있는 단어들의 리스트를 반환
   - sep을 지정하지 않으면 띄워쓰기를 기준으로 구분함
+  - maxsplit에는 구분할 횟수를 지정
 
 text = 'Hello, world!'
 words1 = text.split(',')
