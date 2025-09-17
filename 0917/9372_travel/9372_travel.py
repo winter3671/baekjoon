@@ -17,12 +17,14 @@ def union(x, y):
     ry = find_set(y)
 
     if rx == ry:
-        return
+        return False
 
     if rx > ry:
         parents[rx] = ry
+        return True
     else:
         parents[ry] = rx
+        return True
 
 T = int(input())
 for tc in range(1, T+1):
@@ -31,5 +33,12 @@ for tc in range(1, T+1):
 
     parents = make_set(N + 1)
 
-    while len(parents) > 2:
-        for i in range(M):
+    count = 0
+    for a, b in arr:
+        if len(set(parents)) - 1 == 1:      # parents에 0을 제외하고 숫자가 1종류면
+            break                           # break
+
+        if union(a, b):                     # a, b가 union에 성공하면
+            count += 1
+
+    print(count)
